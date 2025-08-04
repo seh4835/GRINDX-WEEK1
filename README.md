@@ -90,7 +90,11 @@ I also learned how to give the user **instant feedback** (like showing a message
 
 ## 📸 Screenshots
 
+<img width="1918" height="1018" alt="Image" src="https://github.com/user-attachments/assets/b2558925-41ef-43c7-af2c-4f655969aebd" />
 
+<img width="1917" height="1017" alt="Image" src="https://github.com/user-attachments/assets/7c062334-9029-47be-aa42-188683253767" />
+
+<img width="1902" height="1016" alt="Image" src="https://github.com/user-attachments/assets/bb8aa985-b136-423b-917a-020d17d6e623" />
 
 ---
 
