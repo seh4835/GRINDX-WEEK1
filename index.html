@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffe6f0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #333;
+      font-family: Georgia, serif;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #777;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    section.card {
+      margin: 20px 0;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #f9b3c2;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 5px 0;
+    }
+
+    button:hover {
+      background-color: #f58aa5;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    #result {
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    #formMessage {
+      color: green;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-user"></i> Seher Sanghani</h1>
+      <p class="subtitle">Personal Profile Page</p>
+    </header>
+
+    <section class="card">
+      <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="tel" id="phone" placeholder="Phone" required />
+        <button type="submit"><i class="fas fa-paper-plane"></i> Submit</button>
+      </form>
+      <p id="formMessage"></p>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-calculator"></i> Simple Calculator</h2>
+      <input type="number" id="num1" placeholder="First Number" />
+      <input type="number" id="num2" placeholder="Second Number" />
+      <div class="buttons">
+        <button onclick="calculate('add')"><i class="fas fa-plus"></i> Add</button>
+        <button onclick="calculate('subtract')"><i class="fas fa-minus"></i> Subtract</button>
+        <button onclick="calculate('multiply')"><i class="fas fa-times"></i> Multiply</button>
+        <button onclick="calculate('divide')"><i class="fas fa-divide"></i> Divide</button>
+      </div>
+      <p id="result">Result will appear here</p>
+    </section>
+
+    <footer>
+      <p><i class="fas fa-code"></i> Built with HTML, CSS & JavaScript</p>
+    </footer>
+  </div>
+
+  <script>
+    // Form submission logic
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formMessage = document.getElementById("formMessage");
+      formMessage.textContent = "Form submitted successfully!";
+
+      // Clear form fields
+      this.reset();
+
+      // Hide message after 3 seconds
+      setTimeout(() => {
+        formMessage.textContent = "";
+      }, 3000);
+    });
+
+    // Calculator logic
+    function calculate(operation) {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      let result = "";
+
+      if (isNaN(num1) || isNaN(num2)) {
+        result = "Please enter both numbers.";
+      } else {
+        switch (operation) {
+          case "add":
+            result = num1 + num2;
+            break;
+          case "subtract":
+            result = num1 - num2;
+            break;
+          case "multiply":
+            result = num1 * num2;
+            break;
+          case "divide":
+            result = num2 !== 0 ? (num1 / num2) : "Cannot divide by 0";
+            break;
+          default:
+            result = "Invalid operation";
+        }
+      }
+
+      document.getElementById("result").textContent = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>
